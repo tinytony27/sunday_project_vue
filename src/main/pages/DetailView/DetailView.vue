@@ -8,7 +8,8 @@ export default{
     data() {
         return {
             ticket: '',
-            msg: ''
+            msg: '',
+            updateURL: '/ticket/update'
         }
     },
     created () {

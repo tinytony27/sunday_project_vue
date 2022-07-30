@@ -1,7 +1,4 @@
 <div>
-    <div class="m-5 mx-10 p-2 w-12 rounded-xl bg-green-200">
-        <router-link :to="`${updateURL}/${$route.params.id}`">更新</router-link>
-    </div>
     <table class="border-separate p-5 px-10">
         <thead>
             <tr>
@@ -43,4 +40,7 @@
             </tr>
         </tbody>
     </table>
+    <div>
+        <button @click="save">保存</button>
+    </div>
 </div>
