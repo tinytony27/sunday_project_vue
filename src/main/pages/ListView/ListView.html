@@ -1,0 +1,23 @@
+<div>
+    <!--a href="/ticket/create">新規作成</a-->
+    <table class="border-separate p-5 px-10 w-screen">
+        <thead>
+            <tr class="bg-green-300">
+                <th class="border-2 px-3">#</th>
+                <th class="border-2 px-3">カテゴリ</th>
+                <th class="border-2 px-3">ステータス</th>
+                <th class="border-2 px-3">タイトル</th>
+                <th class="border-2 px-3">締め切り</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr v-for="ticket in tickets" v-bind:key="ticket.id">
+                <td class="border-2 text-center"><a :href="`/ticket/${ticket.id}`">{{ticket.id}}</a></td>
+                <td class="border-2 text-center">{{ticket.category}}</td>
+                <td class="border-2 text-center">{{ticket.status}}</td>
+                <td class="border-2"><a :href="`/ticket/${ticket.id}`">{{ticket.title}}</a></td>
+                <td class="border-2 text-center">{{ticket.deadlinedate}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,46 @@
+<div>
+    <div>
+        <!--router-link :to="{name: 'update', params: {ticketId: ticket.ticketDetail.id}}">更新</router-link-->
+    </div>
+    <table class="border-separate p-5 px-10">
+        <thead>
+            <tr>
+                <th class="w-28"></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="">タイトル：</td>
+                <td class="">{{ticket.title}}</td>
+            </tr>
+            <tr>
+                <td class="">作成日：</td>
+                <td class="">{{ticket.created_date}}</td>
+            </tr>
+            <tr>
+                <td class="">分類：</td>
+                <td class="">{{ticket.category}}</td>
+            </tr>
+            <tr>
+                <td class="">説明：</td>
+                <td class="">{{ticket.description}}</td>
+            </tr>
+            <tr>
+                <td class="">ステータス：</td>
+                <td class="">{{ticket.status}}</td>
+            </tr>
+            <tr>
+                <td class="">終了予定日：</td>
+                <td class="">
+                    <span v-if="ticket.deadlinedate !== null">{{ticket.deadlinedate}}</span>
+                    <span v-else>未入力</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="">最終更新日：</td>
+                <td class="">{{ticket.lastupdatedate}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
