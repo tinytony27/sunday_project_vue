@@ -9,18 +9,43 @@ export default{
         return {
           //ticket: '',
           title: '',
-          category: '3',
+          category: '',
           description: '',
           status: '3',
-          endDate: '',
-          updateURL: '/ticket/'
+          deadlinedate: '',
+          updateURL: '/ticket/',
+
+          category_list: [],
+          status_list: []
         }
     },
     created () {
-       //カテゴリーを取ってくる。
-       //ステータスも取ってくる。
-      axios.defaults.xsrfCookieName = 'csrftoken' // ←ココと
-      axios.defaults.xsrfHeaderName = "X-CSRFTOKEN" // ←ココに追加しました
+      //カテゴリーを取ってくる。
+      axios.get('/ticket/api/category/')
+      .then(response => {
+        return response.data
+      })
+      .then(json => {
+        this.category_list = json
+      })
+      .catch((err) => {
+        this.msg = err // エラー処理
+      });
+
+      //ステータスも取ってくる。
+      axios.get('/ticket/api/status/')
+      .then(response => {
+        return response.data
+      })
+      .then(json => {
+        this.status_list = json
+      })
+      .catch((err) => {
+        this.msg = err // エラー処理
+      });
+
+      axios.defaults.xsrfCookieName = 'csrftoken'
+      axios.defaults.xsrfHeaderName = "X-CSRFTOKEN"
     },
     methods: {
         submit: function() {
@@ -30,7 +55,7 @@ export default{
                 category: this.category,
                 description: this.description,
                 status: this.status,
-                endDate: this.endDate
+                deadlinedate: this.deadlinedate
             })
             .then( response => {
                 console.log(response);

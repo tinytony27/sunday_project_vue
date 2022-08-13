@@ -14,7 +14,13 @@
           </tr>
           <tr>
               <td class="">分類：</td>
-              <td class=""></td>
+              <td class="">
+                <select id="category" v-model="category">
+                    <option v-for="a_category in category_list" v-bind:value="a_category.id">
+                        {{a_category.category}}
+                    </option>
+                </select>
+              </td>
           </tr>
           <tr>
               <td class="">説明：</td>
@@ -22,11 +28,17 @@
           </tr>
           <tr>
               <td class="">ステータス：</td>
-              <td class=""></td>
+              <td class="">
+                <select id="status" v-model="status">
+                    <option v-for="a_status in status_list" v-bind:value="a_status.id">
+                        {{a_status.status}}
+                    </option>
+                </select>
+              </td>
           </tr>
           <tr>
               <td class="">終了予定日：</td>
-              <td class=""><input type="date" id="title" v-model="endDate"></td>
+              <td class=""><input type="date" id="deadlinedate" v-model="deadlinedate"></td>
           </tr>
         
       </tbody>
