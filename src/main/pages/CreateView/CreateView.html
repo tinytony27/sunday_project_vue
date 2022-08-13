@@ -1,0 +1,37 @@
+<div>
+  <table class="border-separate p-5 px-10">
+      <thead>
+          <tr>
+              <th class="w-28"></th>
+              <th></th>
+          </tr>
+      </thead>
+      <tbody>
+        
+          <tr>
+              <td class="">タイトル：</td>
+              <td class=""><input type="text" id="title" v-model="title" class=""></td>
+          </tr>
+          <tr>
+              <td class="">分類：</td>
+              <td class=""></td>
+          </tr>
+          <tr>
+              <td class="">説明：</td>
+              <td class=""><input type="text" id="title" v-model="description" class=""></td>
+          </tr>
+          <tr>
+              <td class="">ステータス：</td>
+              <td class=""></td>
+          </tr>
+          <tr>
+              <td class="">終了予定日：</td>
+              <td class=""><input type="date" id="title" v-model="endDate"></td>
+          </tr>
+        
+      </tbody>
+  </table>
+  <div>
+      <button @click="submit">保存</button>
+  </div>
+</div>
