@@ -59,6 +59,7 @@ export default{
             })
             .then( response => {
                 console.log(response);
+                //this.$router.push('/list')
             })
             .catch((err) => {
                 this.msg = err // エラー処理
