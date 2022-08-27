@@ -20,7 +20,6 @@ export default {
     //axios.get('/postalCodeLookupJSON?postalcode=1000001&country=JP')
     axios.get('/ticket/api/ticket')
     .then( response => {
-      //console.log(response);
       return response.data
     })
     .then( json => {
