@@ -12,10 +12,14 @@
         </thead>
         <tbody>
             <tr v-for="ticket in tickets" v-bind:key="ticket.id">
-                <td class="border-2 text-center"><a :href="`/ticket/${ticket.id}`">{{ticket.id}}</a></td>
+                <td class="border-2 text-center">
+                    <router-link :to="{name: 'DetailView', params: {id: ticket.id}}">{{ticket.id}}</router-link>
+                </td>
                 <td class="border-2 text-center">{{ticket.category}}</td>
                 <td class="border-2 text-center">{{ticket.status}}</td>
-                <td class="border-2"><a :href="`/ticket/${ticket.id}`">{{ticket.title}}</a></td>
+                <td class="border-2">
+                    <router-link :to="{name: 'DetailView', params: {id: ticket.id}}">{{ticket.title}}</router-link>
+                </td>
                 <td class="border-2 text-center">{{ticket.deadlinedate}}</td>
             </tr>
         </tbody>

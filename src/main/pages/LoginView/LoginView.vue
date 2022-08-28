@@ -12,10 +12,6 @@ export default{
             msg: ''
         }
     },
-    created () {
-        //axios.defaults.xsrfCookieName = 'csrftoken'
-        //axios.defaults.xsrfHeaderName = "X-CSRFTOKEN"
-    },
     methods: {
         login: function() {
             console.log('login')
@@ -23,18 +19,25 @@ export default{
                 username: this.username,
                 password: this.password
             }
-            
+            console.log(this.$store.state.loggedIn);
             axios.post('/ticket/api/login/', data)
             .then(
                 response => { console.log(response);
-                this.$router.push('/list')
+                this.$store.commit('login',{state: true})
+                console.log('redirect path: '+this.$route.query.redirect);
+                console.log('login state: '+this.$store.state.loggedIn);
+                if(this.$route.query.redirect == undefined){
+                    this.$router.push('/list')
+                }
+                else{
+                    this.$router.push(this.$route.query.redirect);
+                }
+                //
             })
             .catch((err) => {
                 this.msg = err
                 console.log(err);
             });
-            
-            
         }
     }
 }

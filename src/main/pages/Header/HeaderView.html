@@ -3,14 +3,14 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
         <div class="flex justify-between items-center border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10">
             <div class="flex justify-start lg:w-0 lg:flex-1">
-                <a :href="`${listURL}`">
+                <router-link :to="{name: 'ListView'}">
                     <span class="sr-only">一覧</span>
                     <img class="h-8 w-auto sm:h-10" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg" alt="" />
-                </a>
+                </router-link>
             </div>
             <!-- <a :href="SearchViewURL" class="text-base font-medium text-gray-500 hover:text-gray-900"> 一覧 </a> -->
-            <a :href="`${createURL}`" class="text-base font-medium text-gray-500 hover:text-gray-900"> 作成 </a>
-            <a :href="`${kanbanURL}`" class="text-base font-medium text-gray-500 hover:text-gray-900"> カンバンボード </a>
+            <router-link :to="{name: 'CreateView'}" class="text-base font-medium text-gray-500 hover:text-gray-900"> 作成 </router-link>
+            <router-link :to="{name: 'ListView'}" class="text-base font-medium text-gray-500 hover:text-gray-900"> カンバンボード </router-link>
             <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
                 <div>
                     <input type="text" name="recipe" id="recipe" class="bg-gray-100 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full" placeholder="Searh..." />
@@ -20,11 +20,11 @@
                 </button>
             </div>
             <div>
-                <a :href="`${logoutURL}`">
+                <router-link :to="{name: 'LogoutView'}">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
                     </svg>
-                </a>
+                </router-link>
             </div>
         </div>
     </div>

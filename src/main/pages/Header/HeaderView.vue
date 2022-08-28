@@ -6,14 +6,6 @@ export default {
     props: {
       msg: String
     },
-    data() {
-      return {
-        listURL: '/list',
-        createURL: '/ticket/create',
-        kanbanURL: '/kanban',
-        logoutURL: '/logout'
-      }
-    }
 }
 </script>
  

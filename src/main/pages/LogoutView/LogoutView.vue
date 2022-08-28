@@ -17,10 +17,11 @@ export default{
     },
     methods: {
         logout: function() {
-            console.log('logout')            
+            console.log('logout')
             axios.post('/ticket/api/logout/',{})
-            .then(
-                response => { console.log(response);
+            .then( response => {
+                console.log(response)
+                this.$store.commit('logout')
                 this.$router.push('/login')
             })
             .catch((err) => {
