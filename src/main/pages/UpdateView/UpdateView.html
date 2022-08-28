@@ -9,38 +9,49 @@
         <tbody>
             <tr>
                 <td class="">タイトル：</td>
-                <td class="">{{ticket.title}}</td>
+                <td class=""><input type="text" id="title" v-model="title"></td>
             </tr>
             <tr>
                 <td class="">作成日：</td>
-                <td class="">{{ticket.created_date}}</td>
+                <td class="bg-gray-300">{{created_date}}</td>
             </tr>
             <tr>
                 <td class="">分類：</td>
-                <td class="">{{ticket.category}}</td>
+                <td class="">
+                    <select id="category" v-model="category">
+                        <option v-for="elem_category in category_list" v-bind:value="elem_category.id">
+                            {{elem_category.category}}
+                        </option>
+                    </select>
+                </td>
             </tr>
             <tr>
                 <td class="">説明：</td>
-                <td class="">{{ticket.description}}</td>
+                <td class=""><textarea id="description" v-model="description" cols="50" rows="2"/></td>
             </tr>
             <tr>
                 <td class="">ステータス：</td>
-                <td class="">{{ticket.status}}</td>
+                <td class="">
+                    <select id="status" v-model="status">
+                        <option v-for="elem_status in status_list" v-bind:value="elem_status.id">
+                            {{elem_status.status}}
+                        </option>
+                    </select>
+                </td>
             </tr>
             <tr>
                 <td class="">終了予定日：</td>
                 <td class="">
-                    <span v-if="ticket.deadlinedate !== null">{{ticket.deadlinedate}}</span>
-                    <span v-else>未入力</span>
+                    <input type="date" id="deadlinedate" v-model="deadlinedate">
                 </td>
             </tr>
             <tr>
                 <td class="">最終更新日：</td>
-                <td class="">{{ticket.lastupdatedate}}</td>
+                <td class="bg-gray-300">{{lastupdatedate}}</td>
             </tr>
         </tbody>
     </table>
-    <div>
-        <button @click="save">保存</button>
+    <div class="p-5 px-10">
+        <button class="bg-green-200 p-2 w-12 rounded-xl" @click="save">保存</button>
     </div>
 </div>

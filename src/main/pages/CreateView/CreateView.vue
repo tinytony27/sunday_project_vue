@@ -65,6 +65,8 @@ export default{
                 this.msg = err // エラー処理
                 console.log(err);
             });
+
+            this.$router.push('/list')
         }
     }
 }
