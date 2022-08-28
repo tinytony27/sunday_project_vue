@@ -4,6 +4,9 @@ import ListView from './main/pages/ListView/ListView'
 import CreateView from './main/pages/CreateView/CreateView'
 import UpdateView from './main/pages/UpdateView/UpdateView'
 
+import LoginView from './main/pages/LoginView/LoginView'
+import LogoutView from './main/pages/LogoutView/LogoutView'
+
 const routes = [
   {
     path: '/list',
@@ -24,6 +27,16 @@ const routes = [
     path: '/ticket/update/:id',
     name: 'UpdateView',
     component: UpdateView
+  },
+  {
+    path: '/login',
+    name: 'LoginView',
+    component: LoginView
+  },
+  {
+    path: '/logout',
+    name: 'LogoutView',
+    component: LogoutView
   },
 ]
 

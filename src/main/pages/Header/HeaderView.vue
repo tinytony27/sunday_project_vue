@@ -10,7 +10,8 @@ export default {
       return {
         listURL: '/list',
         createURL: '/ticket/create',
-        kanbanURL: '/kanban'
+        kanbanURL: '/kanban',
+        logoutURL: '/logout'
       }
     }
 }

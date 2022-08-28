@@ -1,0 +1,23 @@
+<div>
+    <table class="border-separate p-5 px-10">
+        <thead>
+            <tr>
+                <th class="w-24"></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="">ユーザID：</td>
+                <td class="bg-blue-200"><input type="text" id="username" v-model="username"></td>
+            </tr>
+            <tr>
+                <td class="">パスワード：</td>
+                <td class="bg-blue-200"><input type="password" id="password" v-model="password"></td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="p-5 px-10">
+        <button class="bg-blue-200 p-2 w-24 rounded-xl" @click="login">ログイン</button>
+    </div>
+</div>
