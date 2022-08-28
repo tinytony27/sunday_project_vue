@@ -9,6 +9,11 @@ export default{
         return {
             ticket: '',
             msg: '',
+            title: '',
+            category: '',
+            description: '',
+            status: '3',
+            deadlinedate: '',
             updateURL: '/ticket/update'
         }
     },
@@ -25,11 +30,14 @@ export default{
         .catch((err) => {
             this.msg = err // エラー処理
         });
+
+        axios.defaults.xsrfCookieName = 'csrftoken'
+        axios.defaults.xsrfHeaderName = "X-CSRFTOKEN"
     },
     methods: {
         save: function() {
             console.log('save')
-            axios.patch('/ticket/api/ticket/' + this.$route.params.id, {description : "APIテストチケットUpdate"})
+            axios.patch('/ticket/api/ticket/'+this.$route.params.id+'/', {description : "APIテストチケットUpdate"})
             .then( response => {
                 console.log(response);
             })
