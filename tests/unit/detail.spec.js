@@ -12,8 +12,8 @@ describe('Unit Test for DetailView.vue.', () => {
     }
   }
 
-  const mockDetailApi = [
-    { 
+  const mockDetailApi = {
+    data: { 
       title:'AAA',
       created_date:'2000-00-00',
       category:'3',
@@ -22,7 +22,7 @@ describe('Unit Test for DetailView.vue.', () => {
       deadlinedate:'2000-00-00',
       lastupdatedate:'2000-00-00'
     },
-  ]
+  }
 
   jest.spyOn(axios, 'get').mockResolvedValue(mockDetailApi)
 
@@ -36,6 +36,6 @@ describe('Unit Test for DetailView.vue.', () => {
     })
 
     expect(axios.get).toHaveBeenCalledTimes(1)
-    expect(axios.get).toHaveBeenCalledWith('/ticket/api/ticket/')
+    expect(axios.get).toHaveBeenCalledWith('/ticket/api/ticket/1')
   })
 })
