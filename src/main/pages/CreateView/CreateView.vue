@@ -7,14 +7,9 @@ export default{
     name: 'CreateView',
     data() {
         return {
-          //ticket: '',
           title: '',
           category: '',
           description: '',
-          messageFont: {
-            color: 'black',
-            'font-weight': 'normal'
-          },
           status: '3',
           deadlinedate: '',
           updateURL: '/ticket/',
