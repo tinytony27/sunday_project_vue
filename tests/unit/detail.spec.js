@@ -2,7 +2,6 @@ import { mount, flushPromises } from '@vue/test-utils'
 import DetailView from '../../src/main/pages/DetailView/DetailView.vue'
 
 import axios from 'axios'
-import {nextTick} from 'vue'
 
 describe('Unit Test for DetailView.vue.', () => {
 

@@ -24,7 +24,8 @@
           </tr>
           <tr>
               <td class="">説明：</td>
-              <td class=""><input type="text" id="title" v-model="description" class=""></td>
+              <td class=""><textarea id="title" v-model="description" class="" cols="50" rows="2" data-testid="ticket-description"></textarea></td>
+              <td data-testid="maxLengthMessage" v-bind:style="[messageFontSwitch]">{{maxLengthValidation}}</td>
           </tr>
           <tr>
               <td class="">ステータス：</td>

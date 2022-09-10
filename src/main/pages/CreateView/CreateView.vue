@@ -11,6 +11,10 @@ export default{
           title: '',
           category: '',
           description: '',
+          messageFont: {
+            color: 'black',
+            'font-weight': 'normal'
+          },
           status: '3',
           deadlinedate: '',
           updateURL: '/ticket/',
@@ -68,6 +72,29 @@ export default{
 
             //this.$router.push('/list')
         }
+    },
+    computed: {
+      maxLengthValidation: function() {
+        if(this.description.length < 30){
+          return this.description.length + ' 文字目です。'
+        }
+        else{
+          return (this.description.length - 30) + ' 文字 長すぎます。'
+        }
+      },
+      messageFontSwitch: function(){
+        if(this.description.length < 30){
+          return {
+            color: 'black',
+            'font-weight': 'normal'
+          }
+        }else{
+          return {
+            color: 'red',
+            'font-weight': 'bold'
+          }
+        }
+      }
     }
 }
 </script>
