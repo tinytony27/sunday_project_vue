@@ -20,6 +20,7 @@ export default{
     },
     created () {
       //カテゴリーを取ってくる。
+      // TODO: categoryもvuex経由で取得する。 
       axios.get('/ticket/api/category/')
       .then(response => {
         return response.data
@@ -71,6 +72,7 @@ export default{
     computed: {
       status_list(){
         return this.$store.state.status
+        // statusのデータはvuexでストアしたものを利用。
       },
       maxLengthValidation: function() {
         if(this.description.length < 30){
