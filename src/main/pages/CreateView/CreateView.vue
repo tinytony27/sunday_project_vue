@@ -15,7 +15,7 @@ export default{
           updateURL: '/ticket/',
 
           category_list: [],
-          status_list: []
+          //status_list: []
         }
     },
     created () {
@@ -32,16 +32,16 @@ export default{
       });
 
       //ステータスも取ってくる。
-      axios.get('/ticket/api/status/')
-      .then(response => {
-        return response.data
-      })
-      .then(json => {
-        this.status_list = json
-      })
-      .catch((err) => {
-        this.msg = err // エラー処理
-      });
+      // axios.get('/ticket/api/status/')
+      // .then(response => {
+      //   return response.data
+      // })
+      // .then(json => {
+      //   this.status_list = json
+      // })
+      // .catch((err) => {
+      //   this.msg = err // エラー処理
+      // });
 
       axios.defaults.xsrfCookieName = 'csrftoken'
       axios.defaults.xsrfHeaderName = "X-CSRFTOKEN"
@@ -69,6 +69,9 @@ export default{
         }
     },
     computed: {
+      status_list(){
+        return this.$store.state.status
+      },
       maxLengthValidation: function() {
         if(this.description.length < 30){
           return this.description.length + ' 文字目です。'

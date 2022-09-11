@@ -16,8 +16,6 @@ export default {
     };
   },
   created () {
-    //axios.get('http://www.geonames.org/postalCodeLookupJSON?postalcode=1000001&country=JP')
-    //axios.get('/postalCodeLookupJSON?postalcode=1000001&country=JP')
     axios.get('/ticket/api/ticket')
     .then( response => {
       return response.data
@@ -28,6 +26,9 @@ export default {
     .catch((err) => {
       this.msg = err // エラー処理
     });
+  },
+  mounted: function(){
+    this.$store.dispatch('fetchStatesMaster')
   }
 }
 </script>
