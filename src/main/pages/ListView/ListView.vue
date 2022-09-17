@@ -28,7 +28,11 @@ export default {
     });
   },
   mounted: function(){
-    this.$store.dispatch('fetchStatesMaster')
+    
+    axios.defaults.xsrfCookieName = 'csrftoken'
+    axios.defaults.xsrfHeaderName = "X-CSRFTOKEN"
+    this.$store.dispatch('fetchStatusMaster');
+    this.$store.dispatch('fetchCategoryMaster');
   }
 }
 </script>

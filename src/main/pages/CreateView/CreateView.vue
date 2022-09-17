@@ -21,16 +21,16 @@ export default{
     created () {
       //カテゴリーを取ってくる。
       // TODO: categoryもvuex経由で取得する。 
-      axios.get('/ticket/api/category/')
-      .then(response => {
-        return response.data
-      })
-      .then(json => {
-        this.category_list = json
-      })
-      .catch((err) => {
-        this.msg = err // エラー処理
-      });
+      // axios.get('/ticket/api/category/')
+      // .then(response => {
+      //   return response.data
+      // })
+      // .then(json => {
+      //   this.category_list = json
+      // })
+      // .catch((err) => {
+      //   this.msg = err // エラー処理
+      // });
 
       //ステータスも取ってくる。
       // axios.get('/ticket/api/status/')
@@ -44,12 +44,14 @@ export default{
       //   this.msg = err // エラー処理
       // });
 
-      axios.defaults.xsrfCookieName = 'csrftoken'
-      axios.defaults.xsrfHeaderName = "X-CSRFTOKEN"
+      //axios.defaults.xsrfCookieName = 'csrftoken'
+      //axios.defaults.xsrfHeaderName = "X-CSRFTOKEN"
     },
     methods: {
         submit: function() {
-            console.log('save')
+            axios.defaults.xsrfCookieName = 'csrftoken'
+            axios.defaults.xsrfHeaderName = "X-CSRFTOKEN"
+
             axios.post('/ticket/api/ticket/', {
                 title: this.title,
                 category: this.category,
@@ -73,6 +75,9 @@ export default{
       status_list(){
         return this.$store.state.status
         // statusのデータはvuexでストアしたものを利用。
+      },
+      categories_list(){
+        return this.$store.state.categories
       },
       maxLengthValidation: function() {
         if(this.description.length < 30){
