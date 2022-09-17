@@ -14,38 +14,9 @@ export default{
           deadlinedate: '',
           updateURL: '/ticket/',
 
-          category_list: [],
-          //status_list: []
         }
     },
     created () {
-      //カテゴリーを取ってくる。
-      // TODO: categoryもvuex経由で取得する。 
-      // axios.get('/ticket/api/category/')
-      // .then(response => {
-      //   return response.data
-      // })
-      // .then(json => {
-      //   this.category_list = json
-      // })
-      // .catch((err) => {
-      //   this.msg = err // エラー処理
-      // });
-
-      //ステータスも取ってくる。
-      // axios.get('/ticket/api/status/')
-      // .then(response => {
-      //   return response.data
-      // })
-      // .then(json => {
-      //   this.status_list = json
-      // })
-      // .catch((err) => {
-      //   this.msg = err // エラー処理
-      // });
-
-      //axios.defaults.xsrfCookieName = 'csrftoken'
-      //axios.defaults.xsrfHeaderName = "X-CSRFTOKEN"
     },
     methods: {
         submit: function() {
@@ -74,7 +45,6 @@ export default{
     computed: {
       status_list(){
         return this.$store.state.status
-        // statusのデータはvuexでストアしたものを利用。
       },
       categories_list(){
         return this.$store.state.categories

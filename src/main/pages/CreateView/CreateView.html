@@ -15,7 +15,7 @@
           <tr>
               <td class="">分類：</td>
               <td class="">
-                <select id="category" v-model="category">
+                <select id="category" v-model="category" data-testid="categories-select">
                     <option v-for="a_category in categories_list" v-bind:value="a_category.id">
                         {{a_category.category}}
                     </option>
