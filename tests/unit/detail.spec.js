@@ -1,8 +1,10 @@
 import { mount, flushPromises } from '@vue/test-utils'
 import DetailView from '../../src/main/pages/DetailView/DetailView.vue'
+import UpdateView from '../../src/main/pages/UpdateView/UpdateView.vue'
 
 import axios from 'axios'
-import {nextTick} from 'vue'
+import {createRouter, createWebHistory} from 'vue-router' 
+// import { routes } from "@/src/router"
 
 describe('Unit Test for DetailView.vue.', () => {
 
@@ -10,6 +12,9 @@ describe('Unit Test for DetailView.vue.', () => {
     params: {
       id: 1
     }
+  }
+  const mockRouter = {
+    push: jest.fn()
   }
 
   const mockDetailApi = {
@@ -26,11 +31,30 @@ describe('Unit Test for DetailView.vue.', () => {
 
   jest.spyOn(axios, 'get').mockResolvedValue(mockDetailApi)
 
+  const router = createRouter({
+    history: createWebHistory(),
+    routes: [
+      {
+        path: '/ticket/:id',
+        name: 'DetailView',
+        component: DetailView,
+        meta: { requiresAuth: true }
+      },
+      {
+        path: '/ticket/update/:id',
+        name: 'UpdateView',
+        component: UpdateView,
+        meta: { requiresAuth: true }
+      }
+    ],
+  })
+  
   it('renders props.msg when passed', async() => {
     const wrapper = mount(DetailView,{
       global: {
         mocks: {
           $route: mockRoute,
+          $router: mockRouter
         }
       }
     })

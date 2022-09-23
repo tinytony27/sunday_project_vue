@@ -15,8 +15,8 @@
           <tr>
               <td class="">分類：</td>
               <td class="">
-                <select id="category" v-model="category">
-                    <option v-for="a_category in category_list" v-bind:value="a_category.id">
+                <select id="category" v-model="category" data-testid="categories-select">
+                    <option v-for="a_category in categories_list" v-bind:value="a_category.id">
                         {{a_category.category}}
                     </option>
                 </select>
@@ -24,7 +24,8 @@
           </tr>
           <tr>
               <td class="">説明：</td>
-              <td class=""><input type="text" id="title" v-model="description" class=""></td>
+              <td class=""><textarea id="title" v-model="description" class="" cols="50" rows="2" data-testid="ticket-description"></textarea></td>
+              <td data-testid="maxLengthMessage" v-bind:style="[messageFontSwitch]">{{maxLengthValidation}}</td>
           </tr>
           <tr>
               <td class="">ステータス：</td>
