@@ -1,5 +1,5 @@
-<div>
-  <table class="border-separate p-5 px-10">
+<div class="max-w-6xl mx-auto">
+  <table class="border-separate p-5 px-10 mx-auto">
       <thead>
           <tr>
               <th class="w-28"></th>
@@ -7,15 +7,14 @@
           </tr>
       </thead>
       <tbody>
-        
           <tr>
               <td class="">タイトル：</td>
-              <td class=""><input type="text" id="title" v-model="title" class=""></td>
+              <td class=""><input type="text" id="title" v-model="title" class="border-2 border-blue-200"></td>
           </tr>
           <tr>
               <td class="">分類：</td>
               <td class="">
-                <select id="category" v-model="category" data-testid="categories-select">
+                <select id="category" v-model="category" data-testid="categories-select" class="border-2 border-blue-200">
                     <option v-for="a_category in categories_list" v-bind:value="a_category.id">
                         {{a_category.category}}
                     </option>
@@ -24,13 +23,13 @@
           </tr>
           <tr>
               <td class="">説明：</td>
-              <td class=""><textarea id="title" v-model="description" class="" cols="50" rows="2" data-testid="ticket-description"></textarea></td>
+              <td class=""><textarea id="title" v-model="description" class="border-2 border-blue-200" cols="50" rows="2" data-testid="ticket-description"></textarea></td>
               <td data-testid="maxLengthMessage" v-bind:style="[messageFontSwitch]">{{maxLengthValidation}}</td>
           </tr>
           <tr>
               <td class="">ステータス：</td>
               <td class="">
-                <select id="status" v-model="status">
+                <select id="status" v-model="status" class="border-2 border-blue-200">
                     <option v-for="a_status in status_list" v-bind:value="a_status.id">
                         {{a_status.status}}
                     </option>
@@ -39,12 +38,12 @@
           </tr>
           <tr>
               <td class="">終了予定日：</td>
-              <td class=""><input type="date" id="deadlinedate" v-model="deadlinedate"></td>
+              <td class=""><input type="date" id="deadlinedate" v-model="deadlinedate" class="border-2 border-blue-200"></td>
           </tr>
         
       </tbody>
   </table>
-  <div>
-      <button @click="submit">保存</button>
+  <div class="w-36 m-auto">
+      <button class="bg-green-200 p-2 w-36 rounded-xl" @click="submit">保存</button>
   </div>
 </div>

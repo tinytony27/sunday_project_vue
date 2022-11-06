@@ -21,6 +21,21 @@ export default{
         })
         .then( json => {
             this.ticket = json
+            // API側できれいなデータにしておきたい
+            for(let i = 0; i < this.$store.state.status.length; i++){
+                let status = this.$store.state.status[i];
+                if(status.id == this.ticket.status){
+                    this.ticket.status = status.status;
+                    break;
+                }
+            }
+            for(let i = 0; i < this.$store.state.categories.length; i++){
+                let category = this.$store.state.categories[i];
+                if(category.id == this.ticket.category){
+                    this.ticket.category = category.category;
+                    break;
+                }
+            }
         })
         .catch((err) => {
             this.msg = err // エラー処理

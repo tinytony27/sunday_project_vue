@@ -28,6 +28,7 @@ export default {
     })
     .then( json => {
       this.tickets = json
+      // API側できれいなデータにしておきたい
       this.tickets.forEach(elem => {
         for(let i = 0; i < this.$store.state.status.length; i++){
           let status = this.$store.state.status[i];

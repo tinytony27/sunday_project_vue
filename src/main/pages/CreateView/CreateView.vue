@@ -10,7 +10,7 @@ export default{
           title: '',
           category: '',
           description: '',
-          status: '3',
+          status: '',
           deadlinedate: '',
           updateURL: '/ticket/',
 
