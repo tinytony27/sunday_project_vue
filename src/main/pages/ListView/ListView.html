@@ -1,26 +1,26 @@
-<div>
+<div class="max-w-7xl mx-auto px-4 sm:px-6">
     <!--a href="/ticket/create">新規作成</a-->
-    <table class="border-separate p-5 px-10 w-screen">
+    <table class="border-separate w-full">
         <thead>
             <tr class="bg-green-300">
-                <th class="border-2 px-3">#</th>
-                <th class="border-2 px-3">カテゴリ</th>
-                <th class="border-2 px-3">ステータス</th>
-                <th class="border-2 px-3">タイトル</th>
-                <th class="border-2 px-3">締め切り</th>
+                <th class="border-2 px-3 h-8">#</th>
+                <th class="border-2 px-3 h-8">カテゴリ</th>
+                <th class="border-2 px-3 h-8">ステータス</th>
+                <th class="border-2 px-3 h-8">タイトル</th>
+                <th class="border-2 px-3 h-8 hidden md:flex md:flex-1">締め切り</th>
             </tr>
         </thead>
         <tbody>
             <tr v-for="ticket in tickets" v-bind:key="ticket.id">
-                <td class="border-2 text-center">
+                <td class="border-2 text-center h-8">
                     <router-link :to="{name: 'DetailView', params: {id: ticket.id}}">{{ticket.id}}</router-link>
                 </td>
-                <td class="border-2 text-center">{{ticket.category}}</td>
-                <td class="border-2 text-center">{{ticket.status}}</td>
-                <td class="border-2">
+                <td class="border-2 text-center h-8">{{ticket.category}}</td>
+                <td class="border-2 text-center h-8">{{ticket.status}}</td>
+                <td class="border-2 h-8">
                     <router-link :to="{name: 'DetailView', params: {id: ticket.id}}">{{ticket.title}}</router-link>
                 </td>
-                <td class="border-2 text-center">{{ticket.deadlinedate}}</td>
+                <td class="border-2 text-center h-8 hidden md:flex md:flex-1">{{ticket.deadlinedate}}</td>
             </tr>
         </tbody>
     </table>
