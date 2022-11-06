@@ -44,6 +44,13 @@ export default {
             break;
           }
         }
+        let tmpDate1 = elem.deadlinedate;
+        // console.log(tmpDate1);
+        if(tmpDate1 != null){
+          let tmpDate2 = tmpDate1.substring(0, 10).replace(/-/g,'/');
+          elem.deadlinedate = tmpDate2;
+          // console.log(tmpDate2);
+        }
       });
     })
     .catch((err) => {

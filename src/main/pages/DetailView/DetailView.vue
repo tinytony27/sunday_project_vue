@@ -36,6 +36,11 @@ export default{
                     break;
                 }
             }
+            let tmpDate1 = this.ticket.deadlinedate;
+            if(tmpDate1 != null){
+                let tmpDate2 = tmpDate1.substring(0, 10).replace(/-/g,'/');
+                this.ticket.deadlinedate = tmpDate2;
+            }
         })
         .catch((err) => {
             this.msg = err // エラー処理

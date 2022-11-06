@@ -37,6 +37,11 @@ export default{
             this.status = json.status
             this.deadlinedate = json.deadlinedate
             this.lastupdatedate = json.lastupdatedate
+            let tmpDate1 = this.deadlinedate;
+            if(tmpDate1 != null){
+                let tmpDate2 = tmpDate1.substring(0, 10);
+                this.deadlinedate = tmpDate2;
+            }
         })
         .catch((err) => {
             this.msg = err // エラー処理
