@@ -2,6 +2,7 @@
 
 <script>
 import axios from 'axios';
+// import { ref } from 'vue';
 
 export default{
     name: 'LoginView',
@@ -32,12 +33,33 @@ export default{
                 else{
                     this.$router.push(this.$route.query.redirect);
                 }
-                //
             })
             .catch((err) => {
                 this.msg = err
                 console.log(err);
             });
+        },
+        onKeyDown(event) {
+            const key = event.keyCode;
+            // console.log(key);
+            if(key == 13){
+                // console.log('Enter');
+                // console.log(this.username);
+                // console.log(this.password);
+                if(this.username == ''){
+                    console.log('enmpty username');
+                    this.$refs.username.focus();
+                }
+                else if(this.password == ''){
+                    console.log('enmpty password');
+                    this.$refs.password.focus();
+                }
+                else if(this.username != '' && this.password != ''){
+                    // console.log('exe login');
+                    this.login();
+                }
+                
+            }
         }
     }
 }

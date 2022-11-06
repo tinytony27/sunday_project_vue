@@ -1,5 +1,5 @@
-<div>
-    <table class="border-separate p-5 px-10">
+<div class="w-96 my-10 m-auto border-2 border-gray-300">
+    <table class="border-separate p-5 px-10 m-auto">
         <thead>
             <tr>
                 <th class="w-24"></th>
@@ -9,15 +9,15 @@
         <tbody>
             <tr>
                 <td class="">ユーザID：</td>
-                <td class="bg-blue-200"><input type="text" id="username" v-model="username"></td>
+                <td class="bg-blue-200"><input type="text" id="username" v-model="username" @keydown="onKeyDown" ref="username"></td>
             </tr>
             <tr>
                 <td class="">パスワード：</td>
-                <td class="bg-blue-200"><input type="password" id="password" v-model="password"></td>
+                <td class="bg-blue-200"><input type="password" id="password" v-model="password" @keydown="onKeyDown" ref="password"></td>
             </tr>
         </tbody>
     </table>
-    <div class="p-5 px-10">
-        <button class="bg-blue-200 p-2 w-24 rounded-xl" @click="login">ログイン</button>
+    <div class="py-5 w-32 m-auto">
+        <button class="bg-green-200 w-32 h-8 m-auto rounded-xl" @click="login">ログイン</button>
     </div>
 </div>
