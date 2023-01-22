@@ -4,41 +4,38 @@
     {{test}}
 </template-->
 
-<script>
+<script setup lang="ts">
+import { ref } from '@vue/reactivity';
 import axios from 'axios';
+import { useStore } from 'vuex';
 
-export default {
-  name: 'ListView',
-  data() {
-    return {
-      tickets: [],
-      msg: 'API sample',
-    };
-  },
-  mounted: function(){
-    
-    axios.defaults.xsrfCookieName = 'csrftoken'
+const tickets = ref([]) //TODO: 型定義をStoreに書く
+const msg = ref('API sample')
+const store = useStore()
+
+const initialize = ()=>{
+  axios.defaults.xsrfCookieName = 'csrftoken'
     axios.defaults.xsrfHeaderName = "X-CSRFTOKEN"
-    this.$store.dispatch('fetchStatusMaster');
-    this.$store.dispatch('fetchCategoryMaster');
+    store.dispatch('fetchStatusMaster');
+    store.dispatch('fetchCategoryMaster');
 
     axios.get('/ticket/api/ticket')
     .then( response => {
       return response.data
     })
     .then( json => {
-      this.tickets = json
+      tickets.value = json
       // API側できれいなデータにしておきたい
-      this.tickets.forEach(elem => {
-        for(let i = 0; i < this.$store.state.status.length; i++){
-          let status = this.$store.state.status[i];
+      tickets.value.forEach(elem => {
+        for(let i = 0; i < store.state.status.length; i++){
+          let status = store.state.status[i];
           if(status.id == elem.status){
             elem.status = status.status;
             break;
           }
         }
-        for(let i = 0; i < this.$store.state.categories.length; i++){
-          let category = this.$store.state.categories[i];
+        for(let i = 0; i < store.state.categories.length; i++){
+          let category = store.state.categories[i];
           if(category.id == elem.category){
             elem.category = category.category;
             break;
@@ -54,8 +51,9 @@ export default {
       });
     })
     .catch((err) => {
-      this.msg = err // エラー処理
+      msg.value = err // エラー処理
     });
   }
-}
+
+initialize()
 </script>
